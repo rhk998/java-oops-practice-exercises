@@ -16,24 +16,25 @@ The names of interface, class and methods should be same as defined in the quest
 or else the program won't be considered output.
 The output should be same as above.
 */
+
 class Animals
 {
 	public static void main(String[] args) 
 	{
-		Animal dog=new Dog();
+		animal dog=new Dog();
 		dog.sound();
 		dog.eat();
-		Animal cow=new Cow();
+		animal cow=new Cow();
 		cow.sound();
 		cow.eat();
 	}
 }
-interface Animal
+interface animal
 {
 	void eat();
 	void sound();
 }
-class Dog  implements Animal
+class Dog  implements animal
 {
 	public void eat()
 	{
@@ -44,7 +45,7 @@ class Dog  implements Animal
 		System.out.println("Dog barks.!");
 	}
 }
-class Cow implements Animal
+class Cow implements animal
 {
 	public void eat()
 	{

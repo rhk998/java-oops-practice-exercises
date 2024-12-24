@@ -26,10 +26,41 @@ Thank YOU for using Fedral Bank of India.
 
 
 
-class Bank
-{
-	public static void main(String[] args) 
+class BankingSystemInitializer {
+
+	private long nonStaticBankid;
+	private String nonStaticBankName;
+	private double nonStaticBankBalance;
+
+	static {
+		System.out.println("initialization process has begun");
+	}
+
 	{
-		System.out.println("Hello World!");
+		System.out.println("Banking Process has started,");
+	}
+
+	public BankingSystemInitializer(long nonStaticBankid, String nonStaticBankName, double nonStaticBankBalance){
+		this.nonStaticBankBalance = nonStaticBankBalance;
+		this.nonStaticBankid = nonStaticBankid;
+		this.nonStaticBankName = nonStaticBankName;
+	}
+
+	public void printBankDetails(){
+		System.out.println("Bank Details are:");
+		System.out.println("BANK ID: " + nonStaticBankid);
+		System.out.println("BANK NAME: " + nonStaticBankName);
+		System.out.println("BANK BALANCE: " + nonStaticBankBalance);
+		System.out.println("Thank YOU for using " + nonStaticBankName + ".");
+	}
+
+	public static void main(String[] args) {
+
+		BankingSystemInitializer bank = new BankingSystemInitializer(
+				448742310873423262L,
+				"Fedral Bank of India",
+				98385354265735737.0);
+		bank.printBankDetails();
+
 	}
 }

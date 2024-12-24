@@ -29,8 +29,58 @@ Sample Output-
 */
 class BankDetails 
 {
+	abstract class Account{
+		private long accountNumber;
+
+		public Account(long accountNumber){
+			this.accountNumber = accountNumber;
+		}
+
+		public abstract double getBalance();
+		public abstract void deposit(double Amount);
+	}
+
+	class SavingsAccounnt extends Account{
+
+		private double balance;
+		private double interestRate;
+
+		public SavingsAccounnt(long accounntNumber, double balance, double interest){
+			super(accounntNumber);
+			this.balance = balance;
+			this.interestRate = interest;
+		}
+
+		public double getInterestRate(){
+			return interestRate;
+		}
+		@Override
+		public double getBalance(){
+			return balance + (balance*interestRate);
+		}
+		@Override
+		public void deposit(double amount){
+			balance+=amount;
+		}
+
+		public void displayAccountDetails(){
+			System.out.println("Interest Rate of savings account: " + getInterestRate());
+			System.out.println("Balance in savings account: " + balance);
+		}
+
+	}
 	public static void main(String[] args) 
 	{
-		System.out.println("Hello World!");
+
+		long accountNumber = 123456789;
+		double interestRate = 0.05;
+		double initialBalance = 1000.0;
+
+		BankDetails bankDetails = new BankDetails();
+
+		BankDetails.SavingsAccounnt accnt = bankDetails.new SavingsAccounnt(123456789, 1000.0, 0.05);
+
+		accnt.displayAccountDetails();
+
 	}
 }

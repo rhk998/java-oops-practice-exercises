@@ -18,6 +18,7 @@ For the `Circle` class:
 
 Implement the classes and interface with appropriate method implementations.
 */
+import java.util.Scanner;
 interface shape
 {
 	void calculateArea();
