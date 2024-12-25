@@ -21,31 +21,46 @@ Implement the classes and interface with appropriate method implementations.
 import java.util.Scanner;
 interface shape
 {
-	void calculateArea();
-	void calculatePerimeter();
+	double calculateArea();
+	double calculatePerimeter();
 
 }
 class Rectangles implements shape 
 {
-	public void calculateArea()
-	{
-		System.out.println("Calculate Area of rectangle: ");
+	private double length;
+	private double breadth;
+
+	public Rectangles(double l , double b){
+		this.length = l;
+		this.breadth = b;
 	}
-	public  void calculatePerimeter()
+
+	public double calculateArea()
 	{
-		System.out.println("Calculate perimeter of rectangle ");
+		return length * breadth;
+	}
+	public  double calculatePerimeter()
+	{
+
+		return 2 * (length + breadth);
 	}
 
 }
 class Circle implements shape
 {
-	public void calculateArea()
-	{
-		System.out.println("Calculate Area of circle: ");
+	private double radius;
+
+	public Circle(double r){
+		this.radius = r;
 	}
-	public  void calculatePerimeter()
+	public double calculateArea()
 	{
-		System.out.println("Calculate circumference of circle: ");
+
+		return 2*Math.PI*Math.pow(radius, 2);
+	}
+	public  double calculatePerimeter()
+	{
+		return 2*Math.PI*radius;
 	}
 }
 
@@ -54,12 +69,14 @@ class main
 	public static void main(String[] args) 
 	{
 		Scanner sc= new Scanner(System.in);
-		shape rect= new Rectangles();
-		rect.calculateArea();
-		rect.calculatePerimeter();
-		System.out.println("===============");
-		shape ref=new Circle();
-		ref.calculateArea();
-		ref.calculatePerimeter();
+
+		shape rectangle = new Rectangles(5.0, 3.0);
+		System.out.println("Rectangle Area: " + rectangle.calculateArea());
+		System.out.println("Rectangle Perimeter: " + rectangle.calculatePerimeter());
+
+		shape circle = new Circle(4.0);
+		System.out.println("Circle Area: " + circle.calculateArea());
+		System.out.println("Circle Perimeter (Circumference): " + circle.calculatePerimeter());
+
 	}
 }
